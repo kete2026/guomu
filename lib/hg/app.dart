@@ -116,7 +116,10 @@ class _GuomuMaterialApp extends StatelessWidget {
                 statusBarColor: Colors.transparent,
                 systemNavigationBarColor: Colors.transparent,
               ),
-          child: child ?? const SizedBox.shrink(),
+          child: FocusTraversalGroup(
+            policy: ReadingOrderTraversalPolicy(),
+            child: child ?? const SizedBox.shrink(),
+          ),
         );
       },
       home: RootShell(key: ValueKey(source.baseUrl)),
